@@ -1,0 +1,17 @@
+name: FIFA Auto Catcher (Free Unlimited Cron)
+
+on:
+  schedule:
+    # Runs every 2 hours (0 */2 * * *)
+    - cron: '0 */2 * * *'
+  workflow_dispatch: # Allows you to click "Run" manually in GitHub if you want to test it
+
+jobs:
+  catch-daily-results:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Vercel API to Catch Results
+        run: |
+          # IMPORTANT: Replace the URL below with your actual Vercel project URL!
+          curl -X GET "https://fifa-auto-engine-now.vercel.app//api/catch"
+          echo "Successfully pinged the Vercel catcher!"
