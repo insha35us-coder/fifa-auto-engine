@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/*.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/api/value", "dest": "/api/value.py" },
+    { "src": "/api/catch", "dest": "/api/catch.py" }
+  ],
+  "crons": [
+    {
+      "path": "/api/catch",
+      "schedule": "0 */2 * * *"
+    }
+  ]
+}
